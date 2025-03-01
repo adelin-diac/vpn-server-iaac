@@ -1,8 +1,13 @@
 #!/bin/bash
 
-echo "$1"
+echo "Running setup script..."
+echo ""
 
-# to get set up, people can do: curl <github-repo>/blob/main/install.sh | sh
+echo "Installing docker..."
+sudo ./scripts/setup-docker.sh --add-user "$(whoami)"
 
-# TODO: run `sudo setup-docker.sh --add-user "$SERVER_USER"`
-# allow user to select if they want the script to attempt to automatically open a port on your router
+
+# Things that can be automatic:
+# - Port Forwarding (using upnp)
+# - Assign static IP to server
+# - DDNS - script to update DNS A Record, and Cron job
